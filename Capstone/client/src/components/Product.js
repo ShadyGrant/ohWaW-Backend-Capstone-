@@ -11,10 +11,7 @@ const Product = ({ product}) => {
 
     // const { departments, getAllDepartments } = useContext(DepartmentContext);
     const { userProfile } = useContext(UserProfileContext);
-    console.log(userProfile)
-    const theUserProfile = JSON.parse(userProfile);
     
-
     // useEffect(() => {
     //     getAllDepatments();
     // }, []);
@@ -23,11 +20,11 @@ const Product = ({ product}) => {
         <>
             <Card className="m-4">
                 <p className="text-left px-2">
-                    Posted by: {product.userProfile.displayName}
+                    Posted by: <b>{product.userProfile.displayName}</b>
                 </p>
                 <CardBody>
                     <img src={product.imageLocation} className="product-image" />
-                    <p>{product.title}</p>
+                    <p><b>{product.title}</b></p>
                     <p>{product.description}</p>
                 </CardBody>
                 <Link to={`/comments/`} type="button" class="btn btn-info" value="View Post Details" size="sm">
