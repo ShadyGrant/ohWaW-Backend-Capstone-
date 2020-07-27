@@ -5,6 +5,7 @@ import Login from "./Login";
 import Register from "./Register";
 import ProductList from "./ProductList";
 import NewProductForm from "./NewProductForm";
+import DepartmentList from "./DepartmentList";
 
 
 export default function ApplicationViews() {
@@ -18,7 +19,11 @@ export default function ApplicationViews() {
         </Route>
 
         <Route path="/newproduct">
-        {isLoggedIn ? <NewProductForm /> : <Redirect to="/login" />}
+          {isLoggedIn ? <NewProductForm /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/department">
+          {isLoggedIn ? <DepartmentList /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">
