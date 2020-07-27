@@ -34,7 +34,7 @@ CREATE TABLE [Product] (
   [Description] TEXT NOT NULL,
   [WebsiteURL] NVARCHAR(2000) NOT NULL,
   [ImageLocation] NVARCHAR(2000) NOT NULL,
-  [Price] DECIMAL NOT NULL,
+  [Price] FLOAT NOT NULL,
   [CreateDateTime] DATETIME NOT NULL,
   [DepartmentId] INTEGER NOT NULL,
   [UserProfileId] INTEGER NOT NULL
