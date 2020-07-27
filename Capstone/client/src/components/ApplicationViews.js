@@ -4,6 +4,7 @@ import { UserProfileContext } from "../providers/UserProfileProvider";
 import Login from "./Login";
 import Register from "./Register";
 import ProductList from "./ProductList";
+import NewProductForm from "./NewProductForm";
 
 
 export default function ApplicationViews() {
@@ -14,6 +15,10 @@ export default function ApplicationViews() {
       <Switch>
         <Route path="/" exact>
           {isLoggedIn ? <ProductList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/newproduct">
+        {isLoggedIn ? <NewProductForm /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">
