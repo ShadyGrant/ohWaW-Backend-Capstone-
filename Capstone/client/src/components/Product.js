@@ -20,7 +20,7 @@ const Product = ({ product}) => {
         <>
             <Card className="m-4">
                 <p className="text-left px-2">
-                    Posted by: <b>{product.userProfile.displayName}</b>
+                    Posted by <b>{product.userProfile.displayName}</b>
                 </p>
                 <CardBody>
                     <img src={product.imageLocation} className="product-image" />

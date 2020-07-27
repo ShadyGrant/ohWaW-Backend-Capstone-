@@ -39,6 +39,12 @@ export default function Header() {
                     New Product
                   </NavLink>
                 </NavItem>
+
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/department">
+                    Products By Departments
+                  </NavLink>
+                </NavItem>
               </>
             )}
           </Nav>
