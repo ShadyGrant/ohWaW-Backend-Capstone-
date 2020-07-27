@@ -33,6 +33,12 @@ export default function Header() {
                     News Feed
                   </NavLink>
                 </NavItem>
+
+                <NavItem>
+                  <NavLink tag={RRNavLink} to="/newproduct">
+                    New Product
+                  </NavLink>
+                </NavItem>
               </>
             )}
           </Nav>
