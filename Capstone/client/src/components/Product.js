@@ -11,10 +11,7 @@ const Product = ({ product}) => {
 
     // const { departments, getAllDepartments } = useContext(DepartmentContext);
     const { userProfile } = useContext(UserProfileContext);
-    console.log(userProfile)
-    const theUserProfile = JSON.parse(userProfile);
     
-
     // useEffect(() => {
     //     getAllDepatments();
     // }, []);
