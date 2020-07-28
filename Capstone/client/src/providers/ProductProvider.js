@@ -22,15 +22,10 @@ export const ProductProvider = (props) => {
         );
 
 
-    const getProductById = (id) =>
-        getToken().then((token) =>
-            fetch(`/api/product/${id}`, {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }).then((res) => res.json())
-        );
+    const getProduct = (id) => {
+        return fetch(`/api/product/${id}`)
+        .then((res) => res.json());
+    };
 
     const addProduct = (product) =>
         getToken().then((token) =>
@@ -78,7 +73,7 @@ export const ProductProvider = (props) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(product),
-            }).then(getProductById(product.id))
+            }).then(getProduct(product.id))
         );
 
     const deleteProduct = (id) => {
@@ -99,7 +94,7 @@ export const ProductProvider = (props) => {
                 products,
                 getAllProducts,
                 getProductsByUser,
-                getProductById,
+                getProduct,
                 addProduct,
                 updateProduct,
                 deleteProduct,

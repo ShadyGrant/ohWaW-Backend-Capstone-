@@ -50,7 +50,7 @@ namespace Capstone.Controllers
             _productRepository.Add(product);
             return CreatedAtAction("Get", new { id = product.Id }, product);
         }
-        [Authorize]
+        
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
