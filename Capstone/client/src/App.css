@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.m-4 {
+  background-color: red;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: solid thin white;
+  border-radius: 10px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

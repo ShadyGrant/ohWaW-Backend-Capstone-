@@ -7,6 +7,7 @@ import ProductList from "./ProductList";
 import NewProductForm from "./NewProductForm";
 import DepartmentList from "./DepartmentList";
 import ProductDetails from "./ProductDetails";
+import MyProductList from "./MyProductList";
 
 
 export default function ApplicationViews() {
@@ -29,6 +30,10 @@ export default function ApplicationViews() {
 
         <Route path={`/products/:id`}>
           {isLoggedIn ? <ProductDetails /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/product/getbyuser" exact>
+          {isLoggedIn ? <MyProductList /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/login">

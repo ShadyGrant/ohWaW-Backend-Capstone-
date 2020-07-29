@@ -35,6 +35,7 @@ namespace Capstone.Repositories
         {
             return _context.Product.Include(p => p.UserProfile)
                 .Include(p => p.Department)
+                .OrderByDescending(p => p.CreateDateTime)
                 .FirstOrDefault(p => p.Id == id);
         }
 
@@ -52,6 +53,7 @@ namespace Capstone.Repositories
         {
             return _context.Product.Include(p => p.UserProfile)
                 .Include(p => p.Department)
+                .OrderByDescending(p => p.CreateDateTime)
                 .Where(p => p.DepartmentId == id)
                 .ToList();
         }
