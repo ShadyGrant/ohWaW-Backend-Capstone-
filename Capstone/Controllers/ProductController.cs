@@ -39,7 +39,7 @@ namespace Capstone.Controllers
         {
             return Ok(_productRepository.GetAll());
         }
-
+      
         [HttpPost]
         public IActionResult Post(Product product)
         {
@@ -50,7 +50,7 @@ namespace Capstone.Controllers
             _productRepository.Add(product);
             return CreatedAtAction("Get", new { id = product.Id }, product);
         }
-        
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

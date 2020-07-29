@@ -79,7 +79,8 @@ const ProductDetails = () => {
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-lg-6">
                     <p className="prodcut-details-publishDate"> {product.createDateTime}</p>
-                        <p className="product-details-postedBy"><b>Posted By: </b> {product.userProfile.displayName}</p>
+                    {/* <p className="prodcut-details-department"> {product.departmentId.name}</p>
+                        <p className="product-details-postedBy"><b>Posted By: </b> {product.userProfile.displayName}</p> */}
                         <div><img src={product.imageLocation} className="product-details-image" /></div>
                         <p className="product-details-title"><b>{product.title}</b></p>
                         <p className="product-details-description">{product.description}</p>
@@ -88,7 +89,7 @@ const ProductDetails = () => {
                         {/* <Button onClick={() => history.push(`/newcomment/${post.id}`)} >Add Comment</Button> */}
                         <Button onClick={toggleEdit}>Edit</Button>
                         <Button onClick={toggleDelete}>Delete Post</Button>
-                        <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
+                        <Link to={`/comments/${id}`} type="button"  class="btn btn-info" value="View Comments" size="sm">
                 View Comments
           </Link>
                         {/* <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">

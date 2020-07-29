@@ -22,10 +22,15 @@ export const ProductProvider = (props) => {
         );
 
 
-    const getProduct = (id) => {
-        return fetch(`/api/product/${id}`)
-        .then((res) => res.json());
-    };
+        const getProduct = (id) =>
+        getToken().then((token) =>
+          fetch(`/api/product/${id}`, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }).then((res) => res.json())
+        );
 
     const addProduct = (product) =>
         getToken().then((token) =>
