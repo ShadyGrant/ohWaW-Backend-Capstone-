@@ -8,6 +8,8 @@ import NewProductForm from "./NewProductForm";
 import DepartmentList from "./DepartmentList";
 import ProductDetails from "./ProductDetails";
 import MyProductList from "./MyProductList";
+import NewsFeedProductDetails from "./NewsFeedProductDetails";
+import ProductByDepartment from "./ProductByDepartment";
 
 
 export default function ApplicationViews() {
@@ -32,9 +34,18 @@ export default function ApplicationViews() {
           {isLoggedIn ? <ProductDetails /> : <Redirect to="/login" />}
         </Route>
 
+        <Route path={`/NewsFeedproducts/:id`}>
+          {isLoggedIn ? <NewsFeedProductDetails /> : <Redirect to="/login" />}
+        </Route>
+
         <Route path="/product/getbyuser" exact>
           {isLoggedIn ? <MyProductList /> : <Redirect to="/login" />}
         </Route>
+
+        <Route path="/productbydepartment" exact>
+          {isLoggedIn ? <ProductByDepartment /> : <Redirect to="/login" />}
+        </Route>
+
 
         <Route path="/login">
           <Login />
