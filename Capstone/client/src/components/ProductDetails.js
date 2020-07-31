@@ -13,20 +13,25 @@ const ProductDetails = () => {
     const { id } = useParams();
     const history = useHistory();
 
+
     const { departments, getAllDepartments } = useContext(DepartmentContext);
     const { getProduct, updateProduct, deleteProduct } = useContext(ProductContext);
-    const [product, setProduct] = useState({userProfile: {}});
+    const [product, setProduct] = useState({ userProfile: {} });
+
+    const { getUserFromSession } = useContext(UserProfileContext);
+    const userFromSession = getUserFromSession()
+    const theUserProfile = JSON.parse(userFromSession);
 
     useEffect(() => {
         getProduct(id).then((product) => {
             setProduct(product);
-    
-    
+
+
             // getAllDepartments();
         });
     }, []);
-    
-    
+
+
     const titleRef = useRef();
     const descriptionRef = useRef();
     const websiteURLRef = useRef();
@@ -78,8 +83,8 @@ const ProductDetails = () => {
             <Card className="container">
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-lg-6">
-                    <p className="prodcut-details-publishDate"> {product.createDateTime}</p>
-                    {/* <p className="prodcut-details-department"> {product.departmentId.name}</p>
+                        <p className="prodcut-details-publishDate"> {product.createDateTime}</p>
+                        {/* <p className="prodcut-details-department"> {product.departmentId.name}</p>
                         <p className="product-details-postedBy"><b>Posted By: </b> {product.userProfile.displayName}</p> */}
                         <div><img src={product.imageLocation} className="product-details-image" /></div>
                         <p className="product-details-title"><b>{product.title}</b></p>
@@ -87,10 +92,18 @@ const ProductDetails = () => {
                         <p className="product-details-price"><b>Price: </b> ${product.price}</p>
                         <p className="product-details-websiteURL"><b>Website Link: </b> <a href={product.websiteURL}>{product.websiteURL}</a></p>
                         {/* <Button onClick={() => history.push(`/newcomment/${post.id}`)} >Add Comment</Button> */}
-                        <Button onClick={toggleEdit}>Edit</Button>
-                        <Button onClick={toggleDelete}>Delete Post</Button>
-                        <Link to={`/comments/${id}`} type="button"  class="btn btn-info" value="View Comments" size="sm">
-                View Comments
+                        {product.userProfileId === theUserProfile.id && (
+
+                            <Button onClick={toggleEdit}>Edit</Button>
+
+                        )}
+                        {product.userProfileId === theUserProfile.id && (
+
+                            <Button onClick={toggleDelete}>Delete</Button>
+
+                        )}
+                        <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
+                            View Comments
           </Link>
                         {/* <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
                             View Comments
