@@ -10,6 +10,8 @@ import ProductDetails from "./ProductDetails";
 import MyProductList from "./MyProductList";
 import NewsFeedProductDetails from "./NewsFeedProductDetails";
 import ProductByDepartment from "./ProductByDepartment";
+import CommentList from "./CommentList";
+import NewCommentForm from "./NewCommentForm";
 
 
 export default function ApplicationViews() {
@@ -44,6 +46,14 @@ export default function ApplicationViews() {
 
         <Route path="/productbydepartment" exact>
           {isLoggedIn ? <ProductByDepartment /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path={`/comments/:id`}>
+        {isLoggedIn ? <CommentList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/newcomment/:id">
+        {isLoggedIn ? <NewCommentForm /> : <Redirect to="/login" />}
         </Route>
 
 

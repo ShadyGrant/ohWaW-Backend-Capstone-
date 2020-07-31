@@ -1,15 +1,19 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Card, CardImg, CardBody, Button, Modal, ModalBody } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ProductContext } from "../providers/ProductProvider";
 import { DepartmentContext } from "../providers/DepartmentProvider";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import { useHistory } from "react-router-dom";
+import { CommentContext } from "../providers/CommentProvider";
 
 const Product = ({ product }) => {
     const history = useHistory();
 
     const { userProfile } = useContext(UserProfileContext);
+    const { comment } = useContext(CommentContext);
+
+    const {id} = useParams();
     
     return (
         <>
@@ -25,7 +29,7 @@ const Product = ({ product }) => {
                 <Link to={`/products/${product.id}`} type="button" class="btn btn-info" value="View Post Details" size="sm">
                     View Product Details
           </Link>
-                <Link to={`/comments/`} type="button" class="btn btn-info" value="View Comments" size="sm">
+                <Link to={`/comments/${product.id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
                     View Comments
           </Link>
             </Card>
