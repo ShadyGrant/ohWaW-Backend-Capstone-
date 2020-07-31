@@ -7,6 +7,7 @@ import ApplicationViews from "./components/ApplicationViews";
 import Header from './components/Header';
 import { ProductProvider } from './providers/ProductProvider';
 import { DepartmentProvider } from './providers/DepartmentProvider';
+import { CommentProvider } from './providers/CommentProvider';
 
 
 
@@ -16,8 +17,10 @@ function App() {
       <UserProfileProvider>
         <ProductProvider>
           <DepartmentProvider>
-          <Header />
-          <ApplicationViews />
+            <CommentProvider>
+              <Header />
+              <ApplicationViews />
+            </CommentProvider>
           </DepartmentProvider>
         </ProductProvider>
       </UserProfileProvider>

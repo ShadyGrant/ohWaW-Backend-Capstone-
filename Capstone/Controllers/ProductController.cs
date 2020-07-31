@@ -18,13 +18,13 @@ namespace Capstone.Controllers
     {
         private readonly ProductRepository _productRepository;
         private readonly UserProfileRepository _userProfileRepository;
-        //private readonly CommentRepository _commentRepository;
+        private readonly CommentRepository _commentRepository;
 
         public ProductController(ApplicationDbContext context)
         {
             _productRepository = new ProductRepository(context);
             _userProfileRepository = new UserProfileRepository(context);
-            //_commentRepository = new CommentRepository(context);
+            _commentRepository = new CommentRepository(context);
         }
 
         //getting the authorized user's 
@@ -97,8 +97,8 @@ namespace Capstone.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            //var ProductComments = _commentRepository.GetCommentsByProduct(id);
-            //ProductComments.ForEach(pc => _commentRepository.Delete(pc));
+            var ProductComments = _commentRepository.GetCommentsByProduct(id);
+            ProductComments.ForEach(pc => _commentRepository.Delete(pc));
 
             _productRepository.Delete(id);
             return NoContent();

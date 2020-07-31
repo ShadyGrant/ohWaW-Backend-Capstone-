@@ -18,6 +18,9 @@ export function UserProfileProvider(props) {
     });
   }, []);
 
+  const getUserFromSession = () => {
+    return sessionStorage.getItem("userProfile");
+  }
   const login = (email, pw) => {
     return firebase.auth().signInWithEmailAndPassword(email, pw)
       .then((signInResponse) => getUserProfile(signInResponse.user.uid))
@@ -69,7 +72,7 @@ export function UserProfileProvider(props) {
   };
 
   return (
-    <UserProfileContext.Provider value={{ isLoggedIn, login, logout, register, getToken, getUserProfile, saveUser }}>
+    <UserProfileContext.Provider value={{ isLoggedIn, getUserFromSession, login, logout, register, getToken, getUserProfile, saveUser }}>
       {isFirebaseReady
         ? props.children
         : <Spinner className="app-spinner dark"/>}
