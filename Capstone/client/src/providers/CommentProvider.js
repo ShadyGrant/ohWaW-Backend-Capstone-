@@ -76,7 +76,7 @@ export const CommentProvider = (props) => {
         }).then(getComment(comment.id))
       );
 
-      const deletecomment = (id) => {
+      const deleteComment = (id) => {
         return getToken().then((token) =>
           fetch(`${apiUrl}/${id}`, {
             method: "DELETE",
@@ -95,7 +95,7 @@ export const CommentProvider = (props) => {
 
 
   return (
-    <CommentContext.Provider value={{ comments, getCommentById, addComment, getAllComments, getCommentsByProductId, updateComment, deletecomment }}> 
+    <CommentContext.Provider value={{ comments, getCommentById, addComment, getAllComments, getCommentsByProductId, updateComment, deleteComment }}> 
       {props.children}
     </CommentContext.Provider>
   );

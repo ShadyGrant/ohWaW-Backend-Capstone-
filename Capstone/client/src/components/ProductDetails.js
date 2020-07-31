@@ -6,7 +6,7 @@ import { DepartmentContext } from "../providers/DepartmentProvider";
 import { useHistory } from "react-router-dom";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 
-// import { CommentContext } from "../providers/CommentProvider";
+
 
 const ProductDetails = () => {
 
@@ -25,9 +25,6 @@ const ProductDetails = () => {
     useEffect(() => {
         getProduct(id).then((product) => {
             setProduct(product);
-
-
-            // getAllDepartments();
         });
     }, []);
 
@@ -91,7 +88,6 @@ const ProductDetails = () => {
                         <p className="product-details-description">{product.description}</p>
                         <p className="product-details-price"><b>Price: </b> ${product.price}</p>
                         <p className="product-details-websiteURL"><b>Website Link: </b> <a href={product.websiteURL}>{product.websiteURL}</a></p>
-                        {/* <Button onClick={() => history.push(`/newcomment/${post.id}`)} >Add Comment</Button> */}
                         {product.userProfileId === theUserProfile.id && (
 
                             <Button onClick={toggleEdit}>Edit</Button>
@@ -105,16 +101,11 @@ const ProductDetails = () => {
                         <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
                             View Comments
           </Link>
-                        {/* <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
-                            View Comments
-          </Link> */}
+
                     </div>
                 </div>
 
             </Card>
-            {/* <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
-                View Comments
-          </Link> */}
             <Link to={`/`} type="button" class="btn btn-info" value="Back to News Feed" size="sm">
                 Back to News Feed
           </Link>

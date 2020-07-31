@@ -57,9 +57,9 @@ namespace Capstone.Repositories
             _context.SaveChanges();
         }
 
-        public void Delete(Comment comment)
+        public void Delete(int id)
         {
-
+            var comment = GetById(id);
             _context.Comment.Remove(comment);
             _context.SaveChanges();
         }

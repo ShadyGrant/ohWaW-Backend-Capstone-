@@ -97,9 +97,6 @@ namespace Capstone.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var ProductComments = _commentRepository.GetCommentsByProduct(id);
-            ProductComments.ForEach(pc => _commentRepository.Delete(pc));
-
             _productRepository.Delete(id);
             return NoContent();
         }
