@@ -85,7 +85,7 @@ export default function NewProductForm() {
       <FormGroup>
         <Label for="new-product-description">Description</Label>
         <Input
-          placeholder="Content"
+          placeholder="Description"
           id="new-product-description"
           type="textarea"
           onChange={(e) => setDescription(e.target.value)}
