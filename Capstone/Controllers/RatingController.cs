@@ -46,7 +46,7 @@ namespace Capstone.Controllers
         {
             var Rating = new RatingViewModel();
             Rating.Ratings = _ratingRepository.GetByProductId(id);
-            Rating.AverageRatings = 5;
+            Rating.AverageRatings = Rating.Ratings.Average(r => r.Rate);
             return Ok(Rating);
         }
 
