@@ -8,6 +8,7 @@ import { UserProfileContext } from "../providers/UserProfileProvider";
 
 
 
+
 const ProductDetails = () => {
 
     const { id } = useParams();
@@ -86,7 +87,7 @@ const ProductDetails = () => {
             <Card className="container">
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-lg-6">
-                        <p className="prodcut-details-publishDate"> {product.createDateTime}</p>
+                        {/* <p className="prodcut-details-publishDate"> {product.createDateTime}</p> */}
                         <p className="product-details-postedBy"><b>Posted By: </b> {product.userProfile.displayName}</p>
                         <div><img src={product.imageLocation} className="product-details-image" /></div>
                         <p className="product-details-title"><b>{product.title}</b></p>

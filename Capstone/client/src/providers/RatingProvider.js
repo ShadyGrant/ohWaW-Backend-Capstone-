@@ -7,6 +7,8 @@ export const RatingProvider = (props) => {
 
     const apiUrl = "/api/rating";
     const [ratings, setRatings] = useState([]);
+    const [averageRatings, setAverageRatings] = useState([]);
+
 
     const { getToken } = useContext(UserProfileContext);
 
@@ -30,9 +32,11 @@ export const RatingProvider = (props) => {
                 },
             })
                 .then((res) => res.json())
-                .then((res) => setRatings(res.ratings))
-                // .then((res) => console.log(res))
-        );
+                .then((res) => {
+                    setRatings(res.ratings);
+                    setAverageRatings(res.averageRatings)
+                }
+                ));
 
     const getAllRatings = () =>
         getToken().then((token) =>
@@ -43,6 +47,7 @@ export const RatingProvider = (props) => {
                 }
             }).then(resp => resp.json())
                 .then(setRatings));
+
 
     const getRatingById = (id) =>
         getToken().then((token) =>
@@ -67,7 +72,7 @@ export const RatingProvider = (props) => {
 
 
     return (
-        <RatingContext.Provider value={{ ratings, getRating, getRatingById, addRating, getAllRatings, getRatingsByProductId }}>
+        <RatingContext.Provider value={{ ratings, averageRatings, getRating, getRatingById, addRating, getAllRatings, getRatingsByProductId }}>
             {props.children}
         </RatingContext.Provider>
     );

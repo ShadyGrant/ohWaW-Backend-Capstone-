@@ -8,11 +8,13 @@ import { useHistory } from "react-router-dom";
 
 
 
-const RatingList = () => {
+const RatingList = (rating, averageRating) => {
+    const [theRating, setTheRating] = useState({ rating });
 
     const [product, setProduct] = useState({})
-    const { ratings, getRatingsByProductId } = useContext(RatingContext)
+    const { ratings, getRatingsByProductId, averageRatings } = useContext(RatingContext)
     const { getProduct } = useContext(ProductContext)
+
 
     const history = useHistory();
     const { id } = useParams();
@@ -28,7 +30,7 @@ const RatingList = () => {
 
 
                 <div className="cards-column">
-                    <p className="product-details-title"><b>Product Rate:  </b></p>
+                    <p className="product-details-overall-rating"><b>Overall Rating:</b> {averageRatings} </p>
                     <Button onClick={() => history.push(`/newrating/${product.id}`)} >Add Rating</Button>
 
                     {ratings.map((rating) => (
@@ -43,7 +45,7 @@ const RatingList = () => {
                     <Link to={`/products/${id}`} type="button" class="btn btn-info" value="Back to Posts" size="sm">
                         Back to Post
           </Link>
-          
+
 
                 </div>
             </div>

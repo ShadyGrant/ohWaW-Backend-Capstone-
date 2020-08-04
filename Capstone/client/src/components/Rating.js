@@ -3,6 +3,7 @@ import { UserProfileContext } from "../providers/UserProfileProvider";
 import { RatingContext } from "../providers/RatingProvider";
 import { Card, CardBody, Button, Modal, ModalBody } from "reactstrap";
 import { useHistory } from "react-router-dom";
+import Product from "./Product";
 
 
 //using the Card component that comes with reactstrap to organize some of the post details
@@ -21,10 +22,11 @@ const Rating = ({ rating, productId }) => {
 
     return (
         <>
+
             <Card className="m-4">
                 <p className="text-left px-2">{rating.userProfile.displayName}</p>
                 <CardBody>
-                    <p className="rate">{theRating.rate}</p>
+                    <p className="rate">{theRating.rate}/5</p>
                 </CardBody>
             </Card>
 
