@@ -12,6 +12,8 @@ import NewsFeedProductDetails from "./NewsFeedProductDetails";
 import ProductByDepartment from "./ProductByDepartment";
 import CommentList from "./CommentList";
 import NewCommentForm from "./NewCommentForm";
+import RatingList from "./RatingList";
+import NewRatingForm from "./NewRatingForm";
 
 
 export default function ApplicationViews() {
@@ -54,6 +56,14 @@ export default function ApplicationViews() {
 
         <Route path="/newcomment/:id">
         {isLoggedIn ? <NewCommentForm /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path={`/ratings/:id`}>
+        {isLoggedIn ? <RatingList /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/newrating/:id">
+        {isLoggedIn ? <NewRatingForm /> : <Redirect to="/login" />}
         </Route>
 
 

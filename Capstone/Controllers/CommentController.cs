@@ -76,6 +76,12 @@ namespace Capstone.Controllers
             _commentRepository.Update(comment);
             return NoContent();
         }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _commentRepository.Delete(id);
+            return NoContent();
+        }
 
     }
 }

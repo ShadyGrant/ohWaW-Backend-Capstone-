@@ -2,13 +2,14 @@ import React, { useContext, useState, useRef } from "react";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import { CommentContext } from "../providers/CommentProvider";
 import { Card, CardBody, Button, Modal, ModalBody } from "reactstrap";
+import { useHistory } from "react-router-dom";
 
 
 //using the Card component that comes with reactstrap to organize some of the post details
 const Comment = ({ comment, productId }) => {
     const [theComment, setTheComment] = useState(comment);
 
-
+    const history = useHistory();
     const { getUserFromSession } = useContext(UserProfileContext);
     const { updateComment } = useContext(CommentContext);
     const { deleteComment } = useContext(CommentContext);
@@ -38,7 +39,9 @@ const Comment = ({ comment, productId }) => {
         })
     };
 
-
+    if (!comment) {
+        return null;
+    }
 
     return (
         <>
@@ -121,10 +124,10 @@ const Comment = ({ comment, productId }) => {
                                 onClick={(e) => {
                                     e.preventDefault();
                                     deleteComment(comment.id)
-                                        .then(() => { toggleDelete() }
-                                        )
+                                        .then(() => history.push(`/comments/:id`));}
+                                        
                                 }
-                                }
+                                
                                 className="btn mt-4"
                             >
                                 Yes

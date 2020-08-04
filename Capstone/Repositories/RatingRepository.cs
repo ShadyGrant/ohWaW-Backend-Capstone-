@@ -8,65 +8,51 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Capstone.Repositories
 {
-    public class CommentRepository
+    public class RatingRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public CommentRepository(ApplicationDbContext context)
+        public RatingRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public List<Comment> GetAll()
+        public List<Rating> GetAll()
         {
-            return _context.Comment
+            return _context.Rating
                 .Include(c => c.UserProfile)
                 .Include(c => c.Product)
                 .ThenInclude(p => p.UserProfile)
                 .ToList();
         }
 
-        public Comment GetById(int id)
+        public Rating GetById(int id)
         {
-            return _context.Comment
-                .Include(c => c.UserProfile)
+            return _context.Rating
+               .Include(c => c.UserProfile)
                 .Include(c => c.Product)
                 .ThenInclude(p => p.UserProfile)
                 .FirstOrDefault(c => c.Id == id);
         }
 
-        public List<Comment> GetByProductId(int id)
+        public List<Rating> GetByProductId(int id)
         {
-            return _context.Comment
+            return _context.Rating
                             .Include(c => c.Product)
                             .ThenInclude(p => p.UserProfile)
                             .Include(c => c.UserProfile)
                             .Where(c => c.ProductId == id)
-                            .OrderByDescending(c => c.CreateDateTime)
                             .ToList();
         }
-        public List<Comment> GetCommentsByProduct(int ProductId)
+        public List<Rating> GetRatingsByProduct(int ProductId)
         {
-            var All = _context.Comment.Where(c => c.ProductId == ProductId).ToList();
+            var All = _context.Rating.Where(r => r.ProductId == ProductId).ToList();
 
             return All;
         }
-        public void Add(Comment comment)
+        public void Add(Rating rating)
         {
-            _context.Add(comment);
-            _context.SaveChanges();
-        }
-
-        public void Delete(int id)
-        {
-            var comment = GetById(id);
-            _context.Comment.Remove(comment);
-            _context.SaveChanges();
-        }
-
-        public void Update(Comment comment)
-        {
-            _context.Entry(comment).State = EntityState.Modified;
+            _context.Add(rating);
             _context.SaveChanges();
         }
     }

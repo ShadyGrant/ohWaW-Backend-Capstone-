@@ -6,7 +6,8 @@ import { DepartmentContext } from "../providers/DepartmentProvider";
 import { useHistory } from "react-router-dom";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 
-// import { CommentContext } from "../providers/CommentProvider";
+
+
 
 const ProductDetails = () => {
 
@@ -25,9 +26,6 @@ const ProductDetails = () => {
     useEffect(() => {
         getProduct(id).then((product) => {
             setProduct(product);
-
-
-            // getAllDepartments();
         });
     }, []);
 
@@ -80,18 +78,22 @@ const ProductDetails = () => {
 
     return (
         <>
+            <Link to={`/newrating/${product.id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
+                Rate Product
+          </Link>
+          <Link to={`/ratings/${product.id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
+                View Ratings
+          </Link>
             <Card className="container">
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-lg-6">
-                        <p className="prodcut-details-publishDate"> {product.createDateTime}</p>
-                        {/* <p className="prodcut-details-department"> {product.departmentId.name}</p>
-                        <p className="product-details-postedBy"><b>Posted By: </b> {product.userProfile.displayName}</p> */}
+                        {/* <p className="prodcut-details-publishDate"> {product.createDateTime}</p> */}
+                        <p className="product-details-postedBy"><b>Posted By: </b> {product.userProfile.displayName}</p>
                         <div><img src={product.imageLocation} className="product-details-image" /></div>
                         <p className="product-details-title"><b>{product.title}</b></p>
                         <p className="product-details-description">{product.description}</p>
                         <p className="product-details-price"><b>Price: </b> ${product.price}</p>
                         <p className="product-details-websiteURL"><b>Website Link: </b> <a href={product.websiteURL}>{product.websiteURL}</a></p>
-                        {/* <Button onClick={() => history.push(`/newcomment/${post.id}`)} >Add Comment</Button> */}
                         {product.userProfileId === theUserProfile.id && (
 
                             <Button onClick={toggleEdit}>Edit</Button>
@@ -105,16 +107,11 @@ const ProductDetails = () => {
                         <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
                             View Comments
           </Link>
-                        {/* <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
-                            View Comments
-          </Link> */}
+
                     </div>
                 </div>
 
             </Card>
-            {/* <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
-                View Comments
-          </Link> */}
             <Link to={`/`} type="button" class="btn btn-info" value="Back to News Feed" size="sm">
                 Back to News Feed
           </Link>

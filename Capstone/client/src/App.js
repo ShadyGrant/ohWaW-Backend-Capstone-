@@ -8,6 +8,7 @@ import Header from './components/Header';
 import { ProductProvider } from './providers/ProductProvider';
 import { DepartmentProvider } from './providers/DepartmentProvider';
 import { CommentProvider } from './providers/CommentProvider';
+import { RatingProvider } from './providers/RatingProvider';
 
 
 
@@ -18,8 +19,10 @@ function App() {
         <ProductProvider>
           <DepartmentProvider>
             <CommentProvider>
+              <RatingProvider>
               <Header />
               <ApplicationViews />
+              </RatingProvider>
             </CommentProvider>
           </DepartmentProvider>
         </ProductProvider>

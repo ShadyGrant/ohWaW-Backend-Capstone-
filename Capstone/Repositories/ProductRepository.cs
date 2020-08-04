@@ -45,7 +45,7 @@ namespace Capstone.Repositories
             return _context.Product.Include(p => p.UserProfile)
                 .Include(p => p.Department)
                 .Where(p => p.UserProfile.FirebaseUserId == id)
-                .OrderBy(p => p.CreateDateTime)
+                .OrderByDescending(p => p.CreateDateTime)
                 .ToList();
         }
 
