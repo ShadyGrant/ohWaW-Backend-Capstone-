@@ -3,7 +3,7 @@ import { CommentContext } from "../providers/CommentProvider";
 import Comment from "./Comment";
 import { ProductContext } from "../providers/ProductProvider";
 import { useParams, Link } from "react-router-dom";
-import { Button, Modal, ModalBody } from "reactstrap"
+import { Button } from "reactstrap"
 import { useHistory } from "react-router-dom";
 
 
@@ -43,7 +43,7 @@ const CommentList = () => {
                     <Link to={`/products/${id}`} type="button" class="btn btn-info" value="Back to Posts" size="sm">
                         Back to Post
           </Link>
-          
+
 
                 </div>
             </div>

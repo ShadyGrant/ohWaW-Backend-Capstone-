@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
-import { Card, Modal, ModalBody, Button } from "reactstrap";
-import { Link, useHistory } from "react-router-dom";
-import { DepartmentContext } from "../providers/DepartmentProvider";
+import React from "react";
+import { Card } from "reactstrap";
+import { Link } from "react-router-dom";
+
 
 const Department = ({ department }) => {
-    const history = useHistory()
+
 
     return (
         <>

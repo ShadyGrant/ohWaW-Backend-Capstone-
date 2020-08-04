@@ -24,7 +24,7 @@ export default function Register() {
       register(userProfile, password)
         .then(() => history.push("/"));
     }
- };
+  };
 
   return (
     <Form onSubmit={registerClick}>

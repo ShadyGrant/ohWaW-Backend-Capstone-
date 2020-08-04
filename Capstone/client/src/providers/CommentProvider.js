@@ -12,26 +12,26 @@ export const CommentProvider = (props) => {
 
   const getComment = (id) => {
     return getToken().then((token) =>
-        fetch(apiUrl + `/${id}`, {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then(resp => resp.json()));
-};
+      fetch(apiUrl + `/${id}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(resp => resp.json()));
+  };
 
 
-      const getCommentsByProductId = (id) =>
-      getToken().then((token) =>
-        fetch(apiUrl + `/getbyproduct/${id}`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-          .then((res) => res.json())
-          .then((res) =>setComments(res))
-      );
+  const getCommentsByProductId = (id) =>
+    getToken().then((token) =>
+      fetch(apiUrl + `/getbyproduct/${id}`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((res) => setComments(res))
+    );
 
   const getAllComments = () =>
     getToken().then((token) =>
@@ -64,38 +64,33 @@ export const CommentProvider = (props) => {
         body: JSON.stringify(comment)
       }));
 
-      const updateComment = (comment) =>
-      getToken().then((token) =>
-        fetch(`${apiUrl}/${comment.id}`, {
-          method: "PUT",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(comment),
-        }).then(getComment(comment.id))
-      );
+  const updateComment = (comment) =>
+    getToken().then((token) =>
+      fetch(`${apiUrl}/${comment.id}`, {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(comment),
+      }).then(getComment(comment.id))
+    );
 
-      const deleteComment = (id) => {
-        return getToken().then((token) =>
-          fetch(`${apiUrl}/${id}`, {
-            method: "DELETE",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }).then(getAllComments)
-        );
-      };
-
-  
- 
-
-
+  const deleteComment = (id) => {
+    return getToken().then((token) =>
+      fetch(`${apiUrl}/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }).then(getAllComments)
+    );
+  };
 
 
   return (
-    <CommentContext.Provider value={{ comments, getCommentById, addComment, getAllComments, getCommentsByProductId, updateComment, deleteComment }}> 
+    <CommentContext.Provider value={{ comments, getCommentById, addComment, getAllComments, getCommentsByProductId, updateComment, deleteComment }}>
       {props.children}
     </CommentContext.Provider>
   );

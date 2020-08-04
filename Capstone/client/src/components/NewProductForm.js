@@ -29,11 +29,11 @@ export default function NewProductForm() {
     } else if (!websiteURL) {
       window.alert("You forgot to enter the websiteURL!");
     } else if (!imageLocation) {
-        window.alert("You forgot to enter the imageURL!");
+      window.alert("You forgot to enter the imageURL!");
     } else if (!price) {
-        window.alert("You forgot to enter a price!");
+      window.alert("You forgot to enter a price!");
     } else if (!department) {
-        window.alert("You forgot to select a department!");
+      window.alert("You forgot to select a department!");
     } else {
       const NewProduct = {
         title: title,
@@ -44,7 +44,7 @@ export default function NewProductForm() {
         imageLocation: imageLocation,
         price: price,
       };
-      
+
       addProduct(NewProduct)
         .then((p) => history.push(`/products/${p.id}`))
         .catch((err) => alert(`An error ocurred: ${err.message}`));

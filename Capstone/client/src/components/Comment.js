@@ -124,10 +124,11 @@ const Comment = ({ comment, productId }) => {
                                 onClick={(e) => {
                                     e.preventDefault();
                                     deleteComment(comment.id)
-                                        .then(() => history.push(`/comments/:id`));}
-                                        
+                                        .then(() => history.push(`/comments/:id`));
                                 }
-                                
+
+                                }
+
                                 className="btn mt-4"
                             >
                                 Yes

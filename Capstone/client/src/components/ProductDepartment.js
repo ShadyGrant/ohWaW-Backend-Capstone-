@@ -1,22 +1,20 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Card, Modal, ModalBody, Button } from "reactstrap";
-import { useParams } from "react-router-dom";
 import { DepartmentContext } from "../providers/DepartmentProvider";
 import Product from "./Product";
 import { ProductContext } from "../providers/ProductProvider";
 
 
 const Department = ({ department }) => {
-  const { departments, getAllDepartments } = useContext(DepartmentContext);
   const { getProductsByDepartmentId } = useContext(ProductContext);
 
   const [departmentProductModal, setDepartmentProductModal] = useState(false);
   const [productsByDepartment, setProductsByDepartment] = useState([]);
 
-  
+
   const toggleDepartmentProducts = () => {
     setDepartmentProductModal(!departmentProductModal);
- 
+
     getProductsByDepartmentId(department.id).then(setProductsByDepartment);
   };
 
@@ -34,7 +32,7 @@ const Department = ({ department }) => {
                 <Product
                   key={product.id}
                   product={product}
-                  setDepartmentProducttModal={setDepartmentProductModal} 
+                  setDepartmentProducttModal={setDepartmentProductModal}
                   departmentProductModal={departmentProductModal}
                 />
               ))}

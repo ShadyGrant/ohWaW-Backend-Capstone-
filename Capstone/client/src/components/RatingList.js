@@ -3,13 +3,13 @@ import { RatingContext } from "../providers/RatingProvider";
 import Rating from "./Rating";
 import { ProductContext } from "../providers/ProductProvider";
 import { useParams, Link } from "react-router-dom";
-import { Button, Modal, ModalBody } from "reactstrap"
+import { Button } from "reactstrap"
 import { useHistory } from "react-router-dom";
 
 
 
-const RatingList = (rating, averageRating) => {
-    const [theRating, setTheRating] = useState({ rating });
+const RatingList = () => {
+
 
     const [product, setProduct] = useState({})
     const { ratings, getRatingsByProductId, averageRatings } = useContext(RatingContext)

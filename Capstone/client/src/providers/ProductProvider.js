@@ -22,14 +22,14 @@ export const ProductProvider = (props) => {
         );
 
 
-        const getProduct = (id) =>
+    const getProduct = (id) =>
         getToken().then((token) =>
-          fetch(`/api/product/${id}`, {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }).then((res) => res.json())
+            fetch(`/api/product/${id}`, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }).then((res) => res.json())
         );
 
     const addProduct = (product) =>
