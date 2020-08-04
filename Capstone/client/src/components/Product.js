@@ -1,20 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Card, CardImg, CardBody, Button, Modal, ModalBody } from "reactstrap";
-import { Link, useParams } from "react-router-dom";
-import { ProductContext } from "../providers/ProductProvider";
-import { DepartmentContext } from "../providers/DepartmentProvider";
-import { UserProfileContext } from "../providers/UserProfileProvider";
-import { useHistory } from "react-router-dom";
-import { CommentContext } from "../providers/CommentProvider";
+import React from "react";
+import { Card, CardBody } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
-    const history = useHistory();
 
-    const { userProfile } = useContext(UserProfileContext);
-    const { comment } = useContext(CommentContext);
 
-    const {id} = useParams();
-    
     return (
         <>
             <Card className="m-4">
@@ -22,14 +12,14 @@ const Product = ({ product }) => {
                     Posted by <b>{product.userProfile.displayName}</b>
                 </p>
                 <CardBody>
-                    <img src={product.imageLocation} className="product-image" />
+                    <img src={product.imageLocation} alt="" className="product-image" />
                     <p><b>{product.title}</b></p>
                     <p>{product.description}</p>
                 </CardBody>
-                <Link to={`/products/${product.id}`} type="button" class="btn btn-info" value="View Post Details" size="sm">
+                <Link to={`/products/${product.id}`} type="button" className="btn btn-info" value="View Post Details" size="sm">
                     View Product Details
           </Link>
-                <Link to={`/comments/${product.id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
+                <Link to={`/comments/${product.id}`} type="button" className="btn btn-info" value="View Comments" size="sm">
                     View Comments
           </Link>
             </Card>

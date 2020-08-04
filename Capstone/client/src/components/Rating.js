@@ -1,20 +1,9 @@
-import React, { useContext, useState, useRef } from "react";
-import { UserProfileContext } from "../providers/UserProfileProvider";
-import { RatingContext } from "../providers/RatingProvider";
-import { Card, CardBody, Button, Modal, ModalBody } from "reactstrap";
-import { useHistory } from "react-router-dom";
-import Product from "./Product";
-
+import React, { useState } from "react";
+import { Card, CardBody } from "reactstrap";
 
 //using the Card component that comes with reactstrap to organize some of the post details
-const Rating = ({ rating, productId }) => {
-    const [theRating, setTheRating] = useState(rating);
-
-    const history = useHistory();
-    const { getUserFromSession } = useContext(UserProfileContext);
-    const userFromSession = getUserFromSession()
-    const theUserProfile = JSON.parse(userFromSession);
-
+const Rating = ({ rating }) => {
+    const [theRating] = useState(rating);
 
     if (!rating) {
         return null;
@@ -30,7 +19,7 @@ const Rating = ({ rating, productId }) => {
                 </CardBody>
             </Card>
 
-            
+
         </>
 
     )

@@ -15,7 +15,7 @@ const ProductDetails = () => {
     const history = useHistory();
 
 
-    const { departments, getAllDepartments } = useContext(DepartmentContext);
+    const { departments } = useContext(DepartmentContext);
     const { getProduct, updateProduct, deleteProduct } = useContext(ProductContext);
     const [product, setProduct] = useState({ userProfile: {} });
 
@@ -81,13 +81,13 @@ const ProductDetails = () => {
             <Link to={`/newrating/${product.id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
                 Rate Product
           </Link>
-          <Link to={`/ratings/${product.id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
+            <Link to={`/ratings/${product.id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
                 View Ratings
           </Link>
             <Card className="container">
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-lg-6">
-                        {/* <p className="prodcut-details-publishDate"> {product.createDateTime}</p> */}
+
                         <p className="product-details-postedBy"><b>Posted By: </b> {product.userProfile.displayName}</p>
                         <div><img src={product.imageLocation} className="product-details-image" /></div>
                         <p className="product-details-title"><b>{product.title}</b></p>

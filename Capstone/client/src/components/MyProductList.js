@@ -3,7 +3,7 @@ import { ProductContext } from "../providers/ProductProvider";
 import Product from "./Product";
 
 const MyProductList = () => {
- 
+
   const { products, getProductsByUser } = useContext(ProductContext);
 
   useEffect(() => {

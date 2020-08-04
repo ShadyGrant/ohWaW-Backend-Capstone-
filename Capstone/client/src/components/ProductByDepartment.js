@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from "react";
-import { Button } from "reactstrap";
 import { DepartmentContext } from "../providers/DepartmentProvider";
 import ProductDepartment from "./ProductDepartment";
 

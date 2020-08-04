@@ -51,19 +51,19 @@ export default function ApplicationViews() {
         </Route>
 
         <Route path={`/comments/:id`}>
-        {isLoggedIn ? <CommentList /> : <Redirect to="/login" />}
+          {isLoggedIn ? <CommentList /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/newcomment/:id">
-        {isLoggedIn ? <NewCommentForm /> : <Redirect to="/login" />}
+          {isLoggedIn ? <NewCommentForm /> : <Redirect to="/login" />}
         </Route>
 
         <Route path={`/ratings/:id`}>
-        {isLoggedIn ? <RatingList /> : <Redirect to="/login" />}
+          {isLoggedIn ? <RatingList /> : <Redirect to="/login" />}
         </Route>
 
         <Route path="/newrating/:id">
-        {isLoggedIn ? <NewRatingForm /> : <Redirect to="/login" />}
+          {isLoggedIn ? <NewRatingForm /> : <Redirect to="/login" />}
         </Route>
 
 
