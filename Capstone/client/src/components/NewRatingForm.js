@@ -61,7 +61,7 @@ export default function NewRatingForm() {
             </FormGroup>
 
             <FormGroup>
-                <Button>Save</Button>
+                <Button color="success">Save</Button>
             </FormGroup>
         </Form>
     );
