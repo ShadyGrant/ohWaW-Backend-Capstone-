@@ -28,20 +28,21 @@ const CommentList = () => {
 
 
                 <div className="cards-column">
-                    <p className="product-details-title"><b>Product Title: </b> {product.title}</p>
-                    <Button onClick={() => history.push(`/newcomment/${product.id}`)} >Add Comment</Button>
-
+                    <p className="product-details-title"><b> {product.title} </b></p>
+                    <div class="col-md-12 text-center">
+                        <Button className="add-comment-btn" color="primary" onClick={() => history.push(`/newcomment/${product.id}`)} >Add Comment</Button>
+                    </div>
                     {comments.map((comment) => (
                         <Comment key={comment.id} comment={comment} productId={id} />
                     ))}
                     <br></br>
                     <br></br>
                     <br></br>
-                    <Link to={`/`} type="button" class="btn btn-info" value="Back to NewsFeed" size="sm">
+                    <Link to={`/`} type="button" class="btn btn-dark" value="Back to NewsFeed" size="sm">
                         Back to News Feed
           </Link>
-                    <Link to={`/products/${id}`} type="button" class="btn btn-info" value="Back to Posts" size="sm">
-                        Back to Post
+                    <Link to={`/products/${id}`} type="button" class="btn btn-secondary" value="Back to Posts" size="sm">
+                        Back to Product
           </Link>
 
 

@@ -32,6 +32,42 @@
 .nav-bar{
   background-color: #61dafb;
 }
+.product-image{
+  max-width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.m-4{
+  max-width: 40rem;
+  display: block; 
+  align-items: center;
+}
+.product-details-image{
+  max-width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container{
+  max-width: 40rem;
+  display: block; 
+  align-items: center;
+}
+.product-details-postedBy{
+  text-align: center;
+}
+.product-details-overall-rating{
+  text-align: center;
+}
+.add-comment{
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 
 @keyframes App-logo-spin {
   from {

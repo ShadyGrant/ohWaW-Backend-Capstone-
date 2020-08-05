@@ -126,7 +126,7 @@ export default function NewProductForm() {
 
 
       <FormGroup>
-        <Button>Save</Button>
+        <Button color="success">Save</Button>
       </FormGroup>
     </Form>
   );

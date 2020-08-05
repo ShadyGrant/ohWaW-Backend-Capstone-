@@ -10,7 +10,7 @@ const Department = ({ department }) => {
         <>
             <Card className="m-4">
                 <p className="text-left px-2">{department.name}</p>
-                <Link type="button" class="btn btn-info" value="View Post Details" size="sm">
+                <Link type="button" className="btn btn-primary" value="View Post Details" size="sm">
                     View Products
           </Link>
             </Card>

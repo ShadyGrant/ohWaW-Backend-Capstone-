@@ -16,9 +16,10 @@ const Product = ({ product }) => {
                     <p><b>{product.title}</b></p>
                     <p>{product.description}</p>
                 </CardBody>
-                <Link to={`/products/${product.id}`} type="button" className="btn btn-info" value="View Post Details" size="sm">
+                <Link to={`/products/${product.id}`} type="button" className="btn btn-primary" value="View Post Details" size="sm">
                     View Product Details
           </Link>
+          <br></br>
                 <Link to={`/comments/${product.id}`} type="button" className="btn btn-info" value="View Comments" size="sm">
                     View Comments
           </Link>

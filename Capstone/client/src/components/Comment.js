@@ -47,17 +47,17 @@ const Comment = ({ comment, productId }) => {
         <>
             <Card className="m-4">
                 <p className="comment-creationDate"><b>Comment Date: </b> {comment.createDateTime.substr(0, 10)}</p>
-                <p className="text-left px-2">{comment.userProfile.displayName}</p>
+                <p className="text-left px-2"><b>By:</b> {comment.userProfile.displayName}</p>
                 <CardBody>
-                    <p className="comment-content"><b>Conetnt: </b>{theComment.content}</p>
+                    <p className="comment-content"><b>{theComment.content}</b></p>
                     {comment.userProfileId === theUserProfile.id && (
 
-                        <Button onClick={toggleEdit}>Edit</Button>
+                        <Button color="warning" onClick={toggleEdit}>Edit</Button>
 
                     )}
                     {comment.userProfileId === theUserProfile.id && (
 
-                        <Button onClick={toggleDelete}>Delete</Button>
+                        <Button color="danger" onClick={toggleDelete}>Delete</Button>
 
                     )}
                 </CardBody>

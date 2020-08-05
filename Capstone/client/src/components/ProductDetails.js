@@ -78,41 +78,44 @@ const ProductDetails = () => {
 
     return (
         <>
-            <Link to={`/newrating/${product.id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
-                Rate Product
+            <div class="col-md-12 text-center">
+                <Link to={`/newrating/${product.id}`} type="button" className="btn btn-primary" value="View Comments" size="sm">
+                    Rate Product
           </Link>
-            <Link to={`/ratings/${product.id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
-                View Ratings
+                <Link to={`/ratings/${product.id}`} type="button" className="btn btn-info" value="View Comments" size="sm">
+                    View Ratings
           </Link>
-            <Card className="container">
-                <div className="row justify-content-center">
-                    <div className="col-sm-12 col-lg-6">
+            </div>
+            <br></br>
+            <div className="row justify-content-center">
+                <div className="col-sm-12 col-lg-6">
 
-                        <p className="product-details-postedBy"><b>Posted By: </b> {product.userProfile.displayName}</p>
-                        <div><img src={product.imageLocation} className="product-details-image" /></div>
-                        <p className="product-details-title"><b>{product.title}</b></p>
-                        <p className="product-details-description">{product.description}</p>
-                        <p className="product-details-price"><b>Price: </b> ${product.price}</p>
-                        <p className="product-details-websiteURL"><b>Website Link: </b> <a href={product.websiteURL}>{product.websiteURL}</a></p>
-                        {product.userProfileId === theUserProfile.id && (
+                    <p className="product-details-postedBy"><b>Posted By: </b> {product.userProfile.displayName}</p>
+                    <div><img src={product.imageLocation} className="product-details-image" /></div>
+                    <p className="product-details-title"><b>{product.title}</b></p>
+                    <p className="product-details-description">{product.description}</p>
+                    <p className="product-details-price"><b>Price: </b> ${product.price}</p>
+                    <p className="product-details-websiteURL"><b>Website Link: </b> <a href={product.websiteURL}>{product.websiteURL}</a></p>
+                    {product.userProfileId === theUserProfile.id && (
 
-                            <Button onClick={toggleEdit}>Edit</Button>
+                        <Button color="warning" onClick={toggleEdit}>Edit</Button>
 
-                        )}
-                        {product.userProfileId === theUserProfile.id && (
+                    )}
+                    {product.userProfileId === theUserProfile.id && (
 
-                            <Button onClick={toggleDelete}>Delete</Button>
+                        <Button color="danger" onClick={toggleDelete}>Delete</Button>
 
-                        )}
-                        <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
-                            View Comments
-          </Link>
+                    )}
+                    <Link to={`/comments/${id}`} type="button" class="btn btn-info" value="View Comments" size="sm">
+                        View Comments
+                            <br></br>
+                    </Link>
 
-                    </div>
                 </div>
+            </div>
 
-            </Card>
-            <Link to={`/`} type="button" class="btn btn-info" value="Back to News Feed" size="sm">
+
+            <Link to={`/`} type="button" class="btn btn-dark" value="Back to News Feed" size="sm">
                 Back to News Feed
           </Link>
 
@@ -124,7 +127,7 @@ const ProductDetails = () => {
                             <Button
                                 type="submit"
                                 size="sm"
-                                color="info"
+                                color="danger"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     deleteProduct(product.id).then(() => history.push(`/`));
@@ -136,7 +139,7 @@ const ProductDetails = () => {
                             <Button
                                 type="submit"
                                 size="sm"
-                                color="info"
+                                color="secondary"
                                 onClick={toggleDelete}
                             >
                                 No
@@ -225,7 +228,7 @@ const ProductDetails = () => {
                             <Button
                                 type="submit"
                                 size="sm"
-                                color="info"
+                                color="success"
                                 onClick={(evt) => {
                                     evt.preventDefault();
                                     if (!descriptionRef.current.value) {

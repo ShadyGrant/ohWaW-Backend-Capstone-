@@ -13,7 +13,7 @@ const Rating = ({ rating }) => {
         <>
 
             <Card className="m-4">
-                <p className="text-left px-2">{rating.userProfile.displayName}</p>
+                <p className="text-left px-2">Rated by: {rating.userProfile.displayName}</p>
                 <CardBody>
                     <p className="rate">{theRating.rate}/5</p>
                 </CardBody>
