@@ -8,7 +8,7 @@ const Department = ({ department }) => {
 
     return (
         <>
-            <Card className="m-4">
+            <Card className="m-44">
                 <p className="text-left px-2">{department.name}</p>
                 <Link type="button" className="btn btn-primary" value="View Post Details" size="sm">
                     View Products

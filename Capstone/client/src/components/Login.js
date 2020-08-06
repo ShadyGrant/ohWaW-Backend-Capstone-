@@ -29,7 +29,7 @@ export default function Login() {
           <Input id="password" type="password" onChange={e => setPassword(e.target.value)} />
         </FormGroup>
         <FormGroup>
-          <Button>Login</Button>
+          <Button color="primary">Login</Button>
         </FormGroup>
         <em>
           Not registered? <Link to="register">Register</Link>

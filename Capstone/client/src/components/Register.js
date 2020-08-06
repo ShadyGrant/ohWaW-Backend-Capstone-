@@ -58,7 +58,7 @@ export default function Register() {
           <Input id="confirmPassword" type="password" onChange={e => setConfirmPassword(e.target.value)} />
         </FormGroup>
         <FormGroup>
-          <Button>Register</Button>
+          <Button color="primary">Register</Button>
         </FormGroup>
       </fieldset>
     </Form>
